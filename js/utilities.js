@@ -20,3 +20,34 @@ function setPlayer(playerName, buttonId) {
     }
    
 }
+function getInputFieldValue(inputId) {
+    const valueString = document.getElementById(inputId).value;
+    if (!/\D/.test(valueString)) {
+        const inputValue = parseFloat(valueString);
+        return inputValue;
+    }
+    else {
+        worngInputMsgShow();
+    }
+}
+
+function getTextFieldValue(inputId) {
+    const valueString = document.getElementById(inputId).innerText;
+    const inputValue = parseFloat(valueString);
+    return inputValue;
+}
+
+function setTextFieldValue(inputId, newText) {
+    let getField = document.getElementById(inputId);
+    if (isNaN(newText)) {
+        getField.innerText = '0000';
+        worngInputMsgShow();
+    }
+    else if (newText === 0) {
+        getField.innerText = '0000';
+    }
+    else {
+        getField.innerText = newText;
+        worngInputMsgClose();
+    }
+}
