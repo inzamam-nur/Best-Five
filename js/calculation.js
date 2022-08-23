@@ -13,6 +13,9 @@ document.getElementById('buttonTotalCost').addEventListener('click', function(){
     setTextFieldValue('totalCost', totalCost);
 })
 
-document.getElementById('worrningClose').addEventListener('click', function () {
-    worngInputMsgClose();
+document.getElementById('warningClose').addEventListener('click', function () {
+    wrongInputMsgClose();
 })
+
+
+

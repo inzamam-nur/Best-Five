@@ -2,6 +2,15 @@ function getPlaayer(elementId) {
     const playerName = document.getElementById(elementId).innerText;
     return playerName;
 }
+function alertMsgShow() {
+    const element = document.getElementById('errorMsg');
+    element.classList.remove('hidden');
+}
+
+function alertMsgClose() {
+    const element = document.getElementById('errorMsg');
+    element.classList.add('hidden');
+}
 
 
 function setPlayer(playerName, buttonId) {
@@ -13,22 +22,29 @@ function setPlayer(playerName, buttonId) {
         const li = document.createElement('li');
         li.innerText = playerName;
         ul.appendChild(li);
-        const buttonDisable = document.getElementById(buttonId);
-       
+        const buttonDisable = document.getElementById(buttonId); 
         buttonDisable.classList.add('cursor-not-allowed', 'bg-gray-500');
         buttonDisable.disabled = 'true';
     }
-   
+    else {
+        alertMsgShow();
+    }
+ 
+
+}
+function wrongInputMsgShow() {
+    const element = document.getElementById('wronginput');
+    element.classList.remove('hidden');
+}
+
+function wrongInputMsgClose() {
+    const element = document.getElementById('wronginput');
+    element.classList.add('hidden');
 }
 function getInputFieldValue(inputId) {
     const valueString = document.getElementById(inputId).value;
-    if (!/\D/.test(valueString)) {
-        const inputValue = parseFloat(valueString);
-        return inputValue;
-    }
-    else {
-        worngInputMsgShow();
-    }
+    const inputValue = parseFloat(valueString);
+    return inputValue;
 }
 
 function getTextFieldValue(inputId) {
@@ -41,13 +57,13 @@ function setTextFieldValue(inputId, newText) {
     let getField = document.getElementById(inputId);
     if (isNaN(newText)) {
         getField.innerText = '0000';
-        worngInputMsgShow();
+        wrongInputMsgShow();
     }
     else if (newText === 0) {
         getField.innerText = '0000';
     }
     else {
         getField.innerText = newText;
-        worngInputMsgClose();
+        wrongInputMsgClose();
     }
 }

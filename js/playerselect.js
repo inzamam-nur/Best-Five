@@ -34,3 +34,11 @@ document.getElementById('Button9').addEventListener('click', function () {
     const playerName = getPlaayer('playerName9');
     setPlayer(playerName, 'Button9');
 })
+
+document.getElementsByClassName('closeAlert')[0].addEventListener('click', function () {
+    alertMsgClose();
+})
+
+document.getElementById('closeAlert').addEventListener('click', function () {
+    alertMsgClose();
+})
